@@ -1,0 +1,51 @@
+{
+  "name": "firebase-remote-config-web",
+  "version": "1.0.0",
+  "description": "Firebase Remote Config (RC) fetcher",
+  "main": "dist/rc.umd.js",
+  "module": "dist/rc.es5.js",
+  "typings": "dist/types/rc.d.ts",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "semantic-release": "semantic-release",
+    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepush": "npm run test:prod && npm run build",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petomalina/firebase-remote-config-web.git"
+  },
+  "keywords": [
+    "firebase",
+    "remote",
+    "config",
+    "rc",
+    "javascript"
+  ],
+  "author": "Peter Malina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petomalina/firebase-remote-config-web/issues"
+  },
+  "homepage": "https://github.com/petomalina/firebase-remote-config-web#readme",
+  "dependencies": {
+    "firebase": "^6.6.2"
+  },
+  "devDependencies": {
+    "lodash.camelcase": "^4.3.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.21.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.24.2",
+    "semantic-release": "^15.13.24",
+    "ts-node": "^8.4.1",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.6.3"
+  }
+}
